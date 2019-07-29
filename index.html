@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <form id="gif-form">
+        <label for="gif-input">Add your favorite show!</label>
+        <input type="text" id="gif-input">
+        <input id="find-gif" type="submit" value="Gif Search">
+    </form>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script scr="javascript.js"></script> -->
+    <script type="text/javascript">
+
+    // function is called when form is submitted
+    $("#find-gif").on("click", function() {
+
+        // prevent submit button from submitting a request
+        event.preventDefault();
+
+        var anime = $("#gif-input").val();
+
+        // variable to hold API key
+        var APIKey = "cbhe5AwSsFySg4FYmflgWQ12Ww7qse4M";
+
+        var queryURL = $.get("https://api.giphy.com/v1/gifs/search?api_key=cbhe5AwSsFySg4FYmflgWQ12Ww7qse4M&q=captain america&limit=10&offset=0&rating=G&lang=en");
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(data) {
+            console.log(JSON.stringify(data));
+        });
+
+    })
+
+      </script>
+</body>
+</html>
