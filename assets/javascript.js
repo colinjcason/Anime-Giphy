@@ -1,29 +1,33 @@
 // array that will be generated into buttons
-var topics = ["The Office", "Friends", "Parks & Recreation", "Michael Scott", "Ron Swanson", "Will Ferrell", "Step Brothers"];    
+var topics = ["Saturday Night Live", "Jimmy Fallon", "Kristen Wig", "Andy Sanberg", "Amy Poehler",
+    "Will Ferrell", "Bill Hader", "Adam Sandler"];
 var APIKey = "cbhe5AwSsFySg4FYmflgWQ12Ww7qse4M"
 
-    
 // function is called when form is submitted
-function displayGif() {    
+function displayGif() {
 
-var gif = $(this).attr("data-name");
-var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=" + APIKey + "&limit=10");
+    var gif = $(this).attr("data-name");
+    var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=" + APIKey + "&limit=10");
 
-    xhr.done(function(response) {
-        
+    xhr.done(function (response) {
+
         console.log("success got data", response);
 
         $("#image-dump").empty();
 
         var results = response.data;
 
-        for(var i = 0; i < results.length; i++) {
+        for (var i = 0; i < results.length; i++) {
             var imageURL = results[i].images.fixed_height.url;
+            var imageStill = results[i].images.fixed_height_still.url;
             var imageDiv = $("<img class='new-gif'>");
             imageDiv.attr("src", imageURL);
+            imageDiv.attr("data-still", imageStill);
+            imageDiv.attr("data-moving", imageURL);
+            imageDiv.attr("data-pause", false);
             $("#image-dump").prepend(imageDiv);
         }
-    });    
+    });
 };
 
 function renderButtons() {
@@ -33,10 +37,10 @@ function renderButtons() {
         button.attr("data-name", topics[i]);
         button.text(topics[i]);
         $("#buttons").append(button);
-    }        
+    }
 };
 
-$("#find-gif").on("click", function() {
+$("#find-gif").on("click", function () {
 
     event.preventDefault();
 
@@ -48,9 +52,19 @@ $("#find-gif").on("click", function() {
     renderButtons();
 });
 
+$("#image-dump").on("click", ".new-gif", function () {
+    var paused = $(this).attr("data-pause");
+    if (paused === "true") {
+        $(this).attr("data-pause", false);
+        var movingURL = $(this).attr("data-moving");
+        $(this).attr("src", movingURL);
+    } else {
+        $(this).attr("data-pause", true);
+        var stillURL = $(this).attr("data-still");
+        $(this).attr("src", stillURL);
+    }
+});
+
 $(document).on("click", ".topics-button", displayGif);
 
 renderButtons();
-
-
-
