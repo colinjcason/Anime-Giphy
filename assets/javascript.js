@@ -7,9 +7,12 @@ var APIKey = "cbhe5AwSsFySg4FYmflgWQ12Ww7qse4M"
 function displayGif() {
 
     var gif = $(this).attr("data-name");
-    var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=" + APIKey + "&limit=10");
+    var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=" + APIKey + "&limit=10");
 
-    xhr.done(function (response) {
+    $.ajax({
+        url: xhr,
+        method: "GET"
+    }).then(function(response) {
 
         console.log("success got data", response);
 
@@ -29,6 +32,7 @@ function displayGif() {
         }
     });
 };
+
 
 function renderButtons() {
     for (var i = 0; i < topics.length; i++) {
