@@ -7,10 +7,10 @@ var APIKey = "cbhe5AwSsFySg4FYmflgWQ12Ww7qse4M"
 function displayGif() {
 
     var gif = $(this).attr("data-name");
-    var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=" + APIKey + "&limit=10");
-
+    var query = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=" + APIKey + "&limit=10";
+    
     $.ajax({
-        url: xhr,
+        url: query,
         method: "GET"
     }).then(function(response) {
 
