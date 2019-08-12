@@ -1,7 +1,6 @@
 // array that will be generated into buttons
 var topics = ["Saturday Night Live", "Jimmy Fallon", "Kristen Wig", "Andy Sanberg", "Amy Poehler",
     "Will Ferrell", "Bill Hader", "Adam Sandler"];
-var APIKey = "cbhe5AwSsFySg4FYmflgWQ12Ww7qse4M"
 
 // function is called when form is submitted
 function displayGif() {
