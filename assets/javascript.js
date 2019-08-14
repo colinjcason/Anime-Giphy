@@ -2,6 +2,8 @@
 var topics = ["Saturday Night Live", "Jimmy Fallon", "Kristen Wig", "Andy Sanberg", "Amy Poehler",
     "Will Ferrell", "Bill Hader", "Adam Sandler"];
 
+var APIKey = "YOUR-API-KEY-HERE";
+
 // function is called when form is submitted
 function displayGif() {
 
