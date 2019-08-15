@@ -1,5 +1,8 @@
 # SNL Giphy
 
+## Deployment
+https://colinjcason.github.io/SNL-Giphy/
+
 ## Description
 This web page uses the Giphy API to generate gifs to the page based on what button was selected
 
@@ -14,5 +17,5 @@ This project can be improved with the following;
 * Adding persistence so the gifs and user created buttons stay on the web page after closing the window.
 * Adding functionality so the search button generates different gif results from the first ones that were generated.
 
-# License
+## License
 [GNU]()
