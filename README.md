@@ -7,7 +7,10 @@ https://colinjcason.github.io/SNL-Giphy/
 This web page uses the Giphy API to generate gifs to the page based on what button was selected
 
 ## Instructions
-In order to use this application, create your own API key here [Giphy](https://developers.giphy.com/docs/sdk/).
+In order to use this application, create your own API key [here](https://developers.giphy.com/docs/sdk/).
+Create a file called apiKey.js.
+In your new file, create a variable called var apiKey=YOURKEYHERE and link your file to the html document.
+This allow for full functionality of the web page.
 Click a button on the top of the web page to generate 10 gifs of the SNL cast member selected.
 The user can create their own button by entering text in the search field and clicking "Add your own cast member!".
 The button will be generated at the top of the web page and can be clicked to generate gifs based on the user input.
